@@ -36,6 +36,7 @@
         android:layout_marginBottom="@dimen/_16sdp"
         android:text="@string/pick_images"
         android:textAllCaps="false"
+        android:layout_marginHorizontal="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
