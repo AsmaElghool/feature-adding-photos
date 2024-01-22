@@ -11,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import com.example.pickerimages.databinding.FragmentFavouriteBinding
-import com.google.android.material.textfield.TextInputEditText
 
 class FavoriteFragment : Fragment() {
 
@@ -32,7 +31,7 @@ class FavoriteFragment : Fragment() {
     }
 
     fun adjustUserPhoneIcons(editText: EditText, clearIconResource: Int) {
-        // Set the custom clear icon as drawableEnd initially
+        // Set drawableEnd initially
         editText.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, clearIconResource, 0)
 
         editText.addTextChangedListener(object : TextWatcher {
