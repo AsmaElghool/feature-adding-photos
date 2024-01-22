@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    tools:context=".FavoriteFragment">
+
+    <ToggleButton
+        android:id="@+id/red_heart"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_margin="@dimen/_24sdp"
+        android:background="@drawable/state_of_favorite_heart_red"
+        android:padding="@dimen/_8sdp"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/main_color_heart"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_margin="@dimen/_24sdp"
+        android:background="@drawable/state_of_favorite_heart_main_color"
+        android:padding="@dimen/_8sdp"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toEndOf="@id/red_heart"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phone_number_et"
+        style="@style/TextInputLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/red_heart">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/user_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_clear_edittext_content"
+            android:drawableEnd="@drawable/ic_phone_number"
+            android:drawablePadding="@dimen/_8sdp"
+            android:gravity="end"
+            android:inputType="number"
+            android:paddingStart="@dimen/_16sdp"
+            android:textSize="@dimen/_12sdp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/whatsapp_number_et"
+        style="@style/TextInputLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_number_et">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/user_whatsapp_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_clear_edittext_content"
+            android:drawableEnd="@drawable/ic_whatsapp"
+            android:drawablePadding="@dimen/_8sdp"
+            android:gravity="end"
+            android:inputType="number"
+            android:paddingStart="@dimen/_16sdp"
+            android:textSize="@dimen/_12sdp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

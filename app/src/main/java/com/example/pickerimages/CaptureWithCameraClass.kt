@@ -10,14 +10,14 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 class CaptureWithCameraClass(
-    private val activity: AppCompatActivity,
+    private val activity: FragmentActivity,
     private val onImageCaptured: (String) -> Unit
 ) {
     private lateinit var takePhotoLauncher: ActivityResultLauncher<Intent>

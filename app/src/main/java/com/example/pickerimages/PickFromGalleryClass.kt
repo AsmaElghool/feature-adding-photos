@@ -6,10 +6,10 @@ import android.net.Uri
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 
 class PickFromGalleryClass(
-    private val activity: AppCompatActivity,
+    private val activity: FragmentActivity,
     private val onImagesPicked: (List<Uri>) -> Unit
 ) {
     private lateinit var pickImagesLauncher: ActivityResultLauncher<Intent>

@@ -9,7 +9,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 object CameraPermission {
-    private const val CAMERA_PERMISSION_CODE = 1001
+     private const val CAMERA_PERMISSION_CODE = 1001
 
     fun checkCameraPermission(activity: Activity): Boolean {
         return ContextCompat.checkSelfPermission(
