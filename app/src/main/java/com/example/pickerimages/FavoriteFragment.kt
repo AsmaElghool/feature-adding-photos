@@ -10,6 +10,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.TextView
 import com.example.pickerimages.databinding.FragmentFavouriteBinding
 
 class FavoriteFragment : Fragment() {
@@ -27,9 +28,17 @@ class FavoriteFragment : Fragment() {
         adjustUserPhoneIcons(binding.userWhatsappNumber, R.drawable.ic_whatsapp)
         drawableStartClicked(binding.userPhoneNumber)
         drawableStartClicked(binding.userWhatsappNumber)
+
         return binding.root
     }
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        expandCollapseTextView()
+
+    }
     fun adjustUserPhoneIcons(editText: EditText, clearIconResource: Int) {
         // Set drawableEnd initially
         editText.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, clearIconResource, 0)
@@ -89,4 +98,19 @@ class FavoriteFragment : Fragment() {
             false
         }
     }
+
+    private fun expandCollapseTextView(){
+        binding.showMoreLess.setOnClickListener {
+            if (binding.longTextTextview.maxLines == 2) {
+                // expand
+                binding.longTextTextview.maxLines = Int.MAX_VALUE
+                binding.showMoreLess.text = getString(R.string.show_less)
+            } else {
+                // collapse
+                binding.longTextTextview.maxLines = 2
+                binding.showMoreLess.text = getString(R.string.show_more)
+            }
+        }
+    }
+
 }

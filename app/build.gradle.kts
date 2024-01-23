@@ -55,5 +55,7 @@ dependencies {
     implementation ("androidx.navigation:navigation-ui-ktx:2.7.6")
     implementation ("com.google.android.material:material:1.11.0")
 
+//    implementation("com.borjabravo:readmoretextview:2.1.0")
+    implementation ("com.ms-square:expandableTextView:0.1.4")
 
 }
