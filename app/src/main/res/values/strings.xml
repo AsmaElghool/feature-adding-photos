@@ -1,13 +1,13 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">picker images</string>
     <string name="pick_images">Pick Images</string>
     <string name="how_choose_image">How choose image</string>
     <string name="gallery">Gallery</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="phone_number">رقم الهاتف</string>
     <string name="show_more">عرض المزيد</string>
     <string name="show_less">عرض اقل</string>
-    <string name="full_text">ExpandableTextView is an Android library which allows us to easily create a TextView which can expand/collapse when user clicks on it .we can use this feature in many apps such as movie review app or storytelling app and in many other apps. A sample GIF is given below to get an idea about what we are going to do in this article. Note that we are going to implement this project using the Java language.
-        ExpandableTextView is an Android library which allows us to easily create a TextView which can expand/collapse when user clicks on it .we can use this feature in many apps such as movie review app or storytelling app and in many other apps. A sample GIF is given below to get an idea about what we are going to do in this article. Note that we are going to implement this project using the Java language.</string>
+    <string name="full_text">إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.
+ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق.
+هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً.</string>
 </resources>
