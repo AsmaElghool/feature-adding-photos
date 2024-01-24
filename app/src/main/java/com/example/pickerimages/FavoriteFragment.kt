@@ -1,27 +1,37 @@
 package com.example.pickerimages
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.TextPaint
 import android.text.TextWatcher
+import android.text.method.LinkMovementMethod
+import android.text.style.BackgroundColorSpan
+import android.text.style.ClickableSpan
+import android.text.style.ForegroundColorSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.core.content.ContextCompat
 import com.example.pickerimages.databinding.FragmentFavouriteBinding
 
 class FavoriteFragment : Fragment() {
 
     private lateinit var binding: FragmentFavouriteBinding
+    private var isTextExpanded = false
+    private val maxCollapsedChars = 80
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentFavouriteBinding.inflate(inflater, container, false)
-
 
         adjustUserPhoneIcons(binding.userPhoneNumber, R.drawable.ic_phone_number)
         adjustUserPhoneIcons(binding.userWhatsappNumber, R.drawable.ic_whatsapp)
@@ -33,6 +43,42 @@ class FavoriteFragment : Fragment() {
         return binding.root
     }
 
+
+    private fun expandCollapseTextView() {
+        val fullText = getString(R.string.full_text)
+        val spannableStringBuilder = SpannableStringBuilder()
+
+        val displayText = if (isTextExpanded) fullText else getCollapsedText(fullText, maxCollapsedChars)
+        spannableStringBuilder.append(displayText)
+
+        val showMoreLessText = if (isTextExpanded) getString(R.string.show_less) else getString(R.string.show_more)
+        val clickableSpan = object : ClickableSpan() {
+            override fun onClick(widget: View) {
+                toggleTextVisibility()
+            }
+
+            override fun updateDrawState(ds: TextPaint) {
+                ds.color = ContextCompat.getColor(requireContext(), R.color.main_color)
+                ds.isUnderlineText = false
+            }
+        }
+        spannableStringBuilder.append(" ")
+        spannableStringBuilder.append(showMoreLessText, clickableSpan, 0)
+
+        binding.longTextTextview.text = spannableStringBuilder
+        binding.longTextTextview.movementMethod = LinkMovementMethod.getInstance()
+    }
+    private fun toggleTextVisibility() {
+        isTextExpanded = !isTextExpanded
+        expandCollapseTextView()
+    }
+    private fun getCollapsedText(fullText: String, maxCollapsedChars: Int): CharSequence {
+        return if (fullText.length > maxCollapsedChars) {
+            "${fullText.substring(0, maxCollapsedChars)}..."
+        } else {
+            fullText
+        }
+    }
 
     private fun adjustUserPhoneIcons(editText: EditText, clearIconResource: Int) {
         // Set drawableEnd initially
@@ -93,35 +139,4 @@ class FavoriteFragment : Fragment() {
             false
         }
     }
-
-
-    private fun expandCollapseTextView() {
-        val fullText = getString(R.string.full_text)
-        val maxCollapsedChars = 75
-
-        binding.longTextTextview.text = getCollapsedText(fullText, maxCollapsedChars)
-
-        binding.showMoreLess.setOnClickListener {
-            if (binding.longTextTextview.maxLines == 2) {
-                // Expand
-                binding.longTextTextview.maxLines = Int.MAX_VALUE
-                binding.longTextTextview.text = fullText
-                binding.showMoreLess.text = getString(R.string.show_less)
-            } else {
-                // Collapse
-                binding.longTextTextview.maxLines = 2
-                binding.longTextTextview.text = getCollapsedText(fullText, maxCollapsedChars)
-                binding.showMoreLess.text = getString(R.string.show_more)
-            }
-        }
-    }
-
-    private fun getCollapsedText(fullText: String, maxCollapsedChars: Int): CharSequence {
-        return if (fullText.length > maxCollapsedChars) {
-            "${fullText.substring(0, maxCollapsedChars)}..."
-        } else {
-            fullText
-        }
-    }
-
 }
