@@ -15,10 +15,20 @@
             app:destination="@id/favoriteFragment"
             app:popUpTo="@id/showImagesFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_showImagesFragment_to_tableLayoutFragment"
+            app:destination="@id/tableLayoutFragment"
+            app:popUpTo="@id/showImagesFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.example.pickerimages.FavoriteFragment"
         android:label="fragment_favourite"
         tools:layout="@layout/fragment_favourite" />
+    <fragment
+        android:id="@+id/tableLayoutFragment"
+        android:name="com.example.pickerimages.TabLayoutFragment"
+        android:label="fragment_table_layout"
+        tools:layout="@layout/fragment_tab_layout" />
 </navigation>

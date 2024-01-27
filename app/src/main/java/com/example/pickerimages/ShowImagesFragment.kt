@@ -68,6 +68,9 @@ class ShowImagesFragment : Fragment() {
         binding.toSecondFragment.setOnClickListener {
             findNavController().navigate(R.id.action_showImagesFragment_to_favoriteFragment)
         }
+        binding.toThirdFragment.setOnClickListener {
+            findNavController().navigate(R.id.action_showImagesFragment_to_tableLayoutFragment)
+        }
     }
 
     private fun showTakePhotoDialogOptions() {

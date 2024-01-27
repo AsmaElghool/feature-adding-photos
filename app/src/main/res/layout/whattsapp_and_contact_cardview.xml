@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/call_by_phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:focusable="true"
+        android:clickable="true"
+        android:paddingHorizontal="@dimen/_32sdp">
+
+        <ImageView
+            android:id="@+id/phone_ic_in_cardview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_40sdp"
+            android:src="@drawable/ic_phone_number_in_cardview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/noto_sans_arabic_medium"
+            android:text="اتصال هاتفي مباشر"
+            android:textColor="@color/black_100"
+            app:layout_constraintEnd_toEndOf="@id/phone_ic_in_cardview"
+            app:layout_constraintStart_toStartOf="@id/phone_ic_in_cardview"
+            app:layout_constraintTop_toBottomOf="@id/phone_ic_in_cardview" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contact_by_whattsapp_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:focusable="true"
+        android:clickable="true"
+        android:paddingHorizontal="@dimen/_32sdp">
+
+        <ImageView
+            android:id="@+id/whattsapp_ic_in_cardview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_40sdp"
+            android:src="@drawable/ic_whattsapp_in_cardview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/noto_sans_arabic_medium"
+            android:text="تواصل عبر واتساب"
+            android:textColor="@color/black_100"
+            app:layout_constraintEnd_toEndOf="@id/whattsapp_ic_in_cardview"
+            app:layout_constraintStart_toStartOf="@id/whattsapp_ic_in_cardview"
+            app:layout_constraintTop_toBottomOf="@id/whattsapp_ic_in_cardview" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
