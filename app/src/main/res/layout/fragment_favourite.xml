@@ -178,7 +178,17 @@
             app:layout_constraintEnd_toEndOf="@id/whattsapp_ic_in_cardview"
             app:layout_constraintStart_toStartOf="@id/whattsapp_ic_in_cardview"
             app:layout_constraintTop_toBottomOf="@id/whattsapp_ic_in_cardview" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <Button
+        android:id="@+id/go_to_load_image_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:layout_constraintTop_toBottomOf="@id/phone_number_field"
+        app:layout_constraintStart_toStartOf="@id/phone_number_field"
+        app:layout_constraintEnd_toEndOf="@id/phone_number_field"
+        android:text="@string/to_load_images_fragment"
+        android:textAllCaps="false"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

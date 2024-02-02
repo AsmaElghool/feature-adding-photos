@@ -18,6 +18,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.example.pickerimages.databinding.FragmentFavouriteBinding
 import com.example.pickerimages.databinding.FragmentTextInputEdittextBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -54,6 +55,11 @@ class FavoriteFragment : Fragment() {
             showTextInputEditTextDialog()
             dialog.show()
         }
+
+        binding.goToLoadImageFragment.setOnClickListener {
+            findNavController().navigate(R.id.action_favoriteFragment_to_loadingImagesFragment)
+        }
+
         contactCardView()
     }
 

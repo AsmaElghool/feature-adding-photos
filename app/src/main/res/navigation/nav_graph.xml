@@ -25,10 +25,19 @@
         android:id="@+id/favoriteFragment"
         android:name="com.example.pickerimages.FavoriteFragment"
         android:label="fragment_favourite"
-        tools:layout="@layout/fragment_favourite" />
+        tools:layout="@layout/fragment_favourite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_loadingImagesFragment"
+            app:destination="@id/loadingImagesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/tableLayoutFragment"
         android:name="com.example.pickerimages.TabLayoutFragment"
         android:label="fragment_table_layout"
         tools:layout="@layout/fragment_tab_layout" />
+    <fragment
+        android:id="@+id/loadingImagesFragment"
+        android:name="com.example.pickerimages.LoadingImagesFragment"
+        android:label="fragment_loading_images"
+        tools:layout="@layout/fragment_loading_images" />
 </navigation>
