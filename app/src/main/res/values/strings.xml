@@ -12,4 +12,7 @@
 هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً.</string>
     <string name="show_bottom_sheet">show bottom sheet</string>
     <string name="to_load_images_fragment">to load images fragment</string>
+    <string name="retrieve_data">retrieve data</string>
+    <string name="store_data">store data</string>
+    <string name="enter_name">enter name</string>
 </resources>

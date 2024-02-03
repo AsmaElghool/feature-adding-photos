@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.pickerimages.databinding.FragmentTextInputEdittextBottomSheetBinding
-
 class TextInputEdittextBottomSheet : Fragment() {
     lateinit var binding: FragmentTextInputEdittextBottomSheetBinding
 
@@ -19,5 +18,4 @@ class TextInputEdittextBottomSheet : Fragment() {
 
         return binding.root
     }
-
 }
