@@ -5,17 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.pickerimages.adapters.MyVPAdapter
 import com.example.pickerimages.databinding.FragmentTabLayoutBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
 class TabLayoutFragment : Fragment() {
-    lateinit var binding: FragmentTabLayoutBinding
+    private lateinit var binding: FragmentTabLayoutBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding=FragmentTabLayoutBinding.inflate(inflater,container,false)
         return binding.root
     }
@@ -31,6 +31,5 @@ class TabLayoutFragment : Fragment() {
         }.attach()
 
     }
-
 
 }

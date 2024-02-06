@@ -1,4 +1,4 @@
-package com.example.pickerimages
+package com.example.pickerimages.adapters
 
 import android.net.Uri
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageSwitcher
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pickerimages.R
 
 class RecyclerAdapter(private val images: ArrayList<Uri?>, private val mainView: View) :
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {

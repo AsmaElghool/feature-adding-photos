@@ -8,6 +8,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="black_100">#131313</color>
+    <color name="yellow_100">#FFC107</color>
     <!--    blue  -->
     <color name="blue_200">#99C8D9</color>
     <color name="main_color">#01759F</color>
@@ -21,5 +22,6 @@
     <color name="error_color">#B00020</color>
     <color name="success_color">#3EB860</color>
     <color name="warning_color">#FD9726</color>
+    <color name="warning_color_200">#FBEBD9</color>
     <color name="mtrl_textinput_default_box_stroke_color">#979797</color>
 </resources>

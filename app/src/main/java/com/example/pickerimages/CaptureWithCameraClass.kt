@@ -11,6 +11,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.FragmentActivity
+import com.example.pickerimages.permissions.CameraPermission
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -49,11 +50,7 @@ class CaptureWithCameraClass(
                 imageUri?.let {
                     onImageCaptured(it.toString())
                 } ?: run {
-                    Toast.makeText(
-                        activity,
-                        "Failed to save image to MediaStore",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(activity, "Failed to save image to MediaStore", Toast.LENGTH_SHORT).show()
                 }
             } ?: run {
                 Toast.makeText(activity, "Failed to capture image", Toast.LENGTH_SHORT).show()

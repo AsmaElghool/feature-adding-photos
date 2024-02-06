@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
+import com.example.pickerimages.adapters.RecyclerAdapter
 import com.example.pickerimages.databinding.BottomSheetItemBinding
 import com.example.pickerimages.databinding.FragmentShowImagesBinding
+import com.example.pickerimages.permissions.CameraPermission
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class ShowImagesFragment : Fragment() {

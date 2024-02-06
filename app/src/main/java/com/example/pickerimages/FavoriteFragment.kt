@@ -20,17 +20,12 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.pickerimages.databinding.FragmentFavouriteBinding
-import com.example.pickerimages.databinding.FragmentTextInputEdittextBottomSheetBinding
-import com.google.android.material.bottomsheet.BottomSheetDialog
-
+import com.example.pickerimages.permissions.PhonePermission
 class FavoriteFragment : Fragment() {
 
     private lateinit var binding: FragmentFavouriteBinding
     private var isTextExpanded = false
     private val maxCollapsedChars = 80
-    private lateinit var bottomSheetBinding: FragmentTextInputEdittextBottomSheetBinding
-    private lateinit var dialog: BottomSheetDialog
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,18 +46,12 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.showBottomSheetBtn.setOnClickListener {
-            showTextInputEditTextDialog()
-            dialog.show()
-        }
-
         binding.goToLoadImageFragment.setOnClickListener {
             findNavController().navigate(R.id.action_favoriteFragment_to_loadingImagesFragment)
         }
 
         contactCardView()
     }
-
 
     private fun contactCardView() {
         binding.contactByWhattsappNumber.setOnClickListener {
@@ -111,9 +100,8 @@ class FavoriteFragment : Fragment() {
         }
     }
 
-
-    fun contactByWhattsapp(){
-        //        val phoneNumber = "01022287923"
+    private fun contactByWhattsapp() {
+        // val phoneNumber = "01022287923"
         val phoneNumber = binding.enterPhoneNumberEt.text.toString().trim()
         val egyptCountryCode = "+20"
         if (phoneNumber.isNotEmpty()) {
@@ -122,14 +110,9 @@ class FavoriteFragment : Fragment() {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("https://api.whatsapp.com/send?phone=$fullPhoneNumber")
             startActivity(intent)
-        }else{
+        } else {
             Toast.makeText(requireContext(), "Please Enter Number ", Toast.LENGTH_LONG).show()
         }
-    }
-    private fun showTextInputEditTextDialog() {
-        dialog = BottomSheetDialog(requireContext())
-        bottomSheetBinding = FragmentTextInputEdittextBottomSheetBinding.inflate(layoutInflater)
-        dialog.setContentView(bottomSheetBinding.root)
     }
 
     private fun expandCollapseTextView() {
@@ -172,43 +155,23 @@ class FavoriteFragment : Fragment() {
         }
     }
 
-    private fun adjustUserPhoneIcons(editText: EditText, clearIconResource: Int) {
+    private fun adjustUserPhoneIcons(editText: EditText, endIconResource: Int) {
         // Set drawableEnd initially
-        editText.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, clearIconResource, 0)
+        editText.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, endIconResource, 0)
 
         editText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                charSequence: CharSequence?,
-                start: Int,
-                count: Int,
-                after: Int
-            ) {
+            override fun beforeTextChanged(charSequence: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
-            override fun onTextChanged(
-                charSequence: CharSequence?,
-                start: Int,
-                before: Int,
-                count: Int
-            ) {
+            override fun onTextChanged(charSequence: CharSequence?, start: Int, before: Int, count: Int) {
             }
 
             override fun afterTextChanged(editable: Editable?) {
                 // if the edit text is empty
                 if (editable.isNullOrEmpty()) {
-                    editText.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                        0,
-                        0,
-                        clearIconResource,
-                        0
-                    )
+                    editText.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, endIconResource, 0)
                 } else {
-                    editText.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                        R.drawable.ic_clear_edittext_content,
-                        0,
-                        clearIconResource,
-                        0
-                    )
+                    editText.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_clear_edittext_content, 0, endIconResource, 0)
                 }
             }
         })
@@ -217,15 +180,12 @@ class FavoriteFragment : Fragment() {
     @SuppressLint("ClickableViewAccessibility")
     fun drawableStartClicked(editText: EditText) {
         editText.setOnTouchListener { _, event ->
-            val DRAWABLE_RIGHT = 2
-            val rightDrawable = editText.compoundDrawables[DRAWABLE_RIGHT]
+            val rightDrawable = editText.compoundDrawables[2]
 
             if (event.action == MotionEvent.ACTION_UP && rightDrawable != null) {
                 val drawableWidth = rightDrawable.bounds.width()
-
                 if (event.rawX >= (editText.right - drawableWidth)) {
                     editText.text?.clear()
-                    return@setOnTouchListener true
                 }
             }
             false

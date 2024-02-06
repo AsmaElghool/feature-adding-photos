@@ -4,16 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_200"
+    android:layoutDirection="rtl"
     tools:context=".ArtisansFragment">
 
     <TextView
+        android:id="@+id/rate_Service1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Artisans Fragment"
-        android:textSize="@dimen/_18sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:fontFamily="@font/noto_sans_arabic_bold"
+        android:text="@string/rate_service"
+        android:textSize="@dimen/_16sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rate_Service2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_arabic_medium"
+        android:text="@string/tell_your_opinion"
+        app:layout_constraintStart_toStartOf="@id/rate_Service1"
+        app:layout_constraintTop_toBottomOf="@id/rate_Service1" />
+
+    <RatingBar
+        android:id="@+id/ratingBarChef"
+        style="@style/RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_16sdp"
+        android:stepSize="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rate_Service2" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progressTint="@color/yellow_100"
+        android:secondaryProgressTint="@color/yellow_100"
+        android:stepSize="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ratingBarChef" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,4 +15,8 @@
     <string name="retrieve_data">retrieve data</string>
     <string name="store_data">store data</string>
     <string name="enter_name">enter name</string>
+    <string name="rate_service">تقييم جودة الخدمة</string>
+    <string name="direct_phone_call">اتصال هاتفي مباشر</string>
+    <string name="direct_contact_by_whattsapp">تواصل عبر واتساب</string>
+    <string name="tell_your_opinion">أخبر الآخرين برأيك لضمان تجربة أفضل للجميع دائمًا.</string>
 </resources>

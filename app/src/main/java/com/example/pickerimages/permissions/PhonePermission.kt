@@ -1,36 +1,36 @@
-package com.example.pickerimages
+package com.example.pickerimages.permissions
 
 import android.app.Activity
-import android.Manifest
 import android.content.pm.PackageManager
 import android.widget.Toast
+import android.Manifest
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
-object CameraPermission {
-     private const val CAMERA_PERMISSION_CODE = 1001
+object PhonePermission {
+    const val CALL_PHONE_PERMISSION_CODE = 1002
 
-    fun checkCameraPermission(activity: Activity): Boolean {
+    fun checkCallPhonePermission(activity: Activity): Boolean {
         return ContextCompat.checkSelfPermission(
             activity,
-            Manifest.permission.CAMERA
+            Manifest.permission.CALL_PHONE
         ) == PackageManager.PERMISSION_GRANTED
     }
 
-    fun requestCameraPermission(activity: Activity) {
+    fun requestCallPhonePermission(activity: Activity) {
         val shouldShowRationale =
             ActivityCompat.shouldShowRequestPermissionRationale(
                 activity,
-                Manifest.permission.CAMERA
+                Manifest.permission.CALL_PHONE
             )
         if (shouldShowRationale) {
             showPermissionRationale(activity)
         } else {
             ActivityCompat.requestPermissions(
                 activity,
-                arrayOf(Manifest.permission.CAMERA),
-                CAMERA_PERMISSION_CODE
+                arrayOf(Manifest.permission.CALL_PHONE),
+                CALL_PHONE_PERMISSION_CODE
             )
         }
     }
@@ -41,24 +41,24 @@ object CameraPermission {
         grantResults: IntArray,
         onPermissionGranted: () -> Unit
     ) {
-        if (requestCode == CAMERA_PERMISSION_CODE) {
+        if (requestCode == CALL_PHONE_PERMISSION_CODE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 onPermissionGranted()
             } else {
-                Toast.makeText(activity, "Camera permission denied", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Call phone permission denied", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     private fun showPermissionRationale(activity: Activity) {
         AlertDialog.Builder(activity)
-            .setTitle("Camera Permission Needed")
-            .setMessage("This app requires camera permission to take photos.")
+            .setTitle("Call Phone Permission Needed")
+            .setMessage("This app requires phone call permission to make calls.")
             .setPositiveButton("OK") { _, _ ->
                 ActivityCompat.requestPermissions(
                     activity,
-                    arrayOf(Manifest.permission.CAMERA),
-                    CAMERA_PERMISSION_CODE
+                    arrayOf(Manifest.permission.CALL_PHONE),
+                    CALL_PHONE_PERMISSION_CODE
                 )
             }
             .setNegativeButton("Cancel") { dialog, _ ->

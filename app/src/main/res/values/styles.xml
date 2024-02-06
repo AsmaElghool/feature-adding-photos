@@ -16,4 +16,13 @@
         <item name="colorAccent">#f02</item>
         <item name="android:textColorSecondary">@color/gray_200</item>
     </style>
+
+    <style name="RatingBar" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingbar_filled_empty</item>
+        <item name="android:minHeight">@dimen/_16sdp</item>
+        <item name="android:maxHeight">@dimen/_48sdp</item>
+        <item name="marginHorizontal">@dimen/_16sdp</item>
+        <item name="android:layout_marginHorizontal">@dimen/_16sdp</item>
+    </style>
+
 </resources>
