@@ -7,10 +7,8 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.TextPaint
-import android.text.TextWatcher
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -18,9 +16,13 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.pickerimages.databinding.FragmentFavouriteBinding
 import com.example.pickerimages.permissions.PhonePermission
+import com.google.android.material.internal.TextWatcherAdapter
+
+
 class FavoriteFragment : Fragment() {
 
     private lateinit var binding: FragmentFavouriteBinding
@@ -33,10 +35,10 @@ class FavoriteFragment : Fragment() {
     ): View? {
         binding = FragmentFavouriteBinding.inflate(inflater, container, false)
 
-        adjustUserPhoneIcons(binding.userPhoneNumber, R.drawable.ic_phone_number)
-        adjustUserPhoneIcons(binding.userWhatsappNumber, R.drawable.ic_whatsapp)
-        drawableStartClicked(binding.userPhoneNumber)
-        drawableStartClicked(binding.userWhatsappNumber)
+        adjustClearIconVisibility(binding.userPhoneNumber, R.drawable.ic_phone_number)
+        adjustClearIconVisibility(binding.userWhatsappNumber, R.drawable.ic_whatsapp)
+        clearIconClicked(binding.userPhoneNumber)
+        clearIconClicked(binding.userWhatsappNumber)
 
         expandCollapseTextView()
 
@@ -154,21 +156,11 @@ class FavoriteFragment : Fragment() {
             fullText
         }
     }
-
-    private fun adjustUserPhoneIcons(editText: EditText, endIconResource: Int) {
-        // Set drawableEnd initially
-        editText.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, endIconResource, 0)
-
-        editText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(charSequence: CharSequence?, start: Int, before: Int, count: Int) {
-            }
-
-            override fun afterTextChanged(editable: Editable?) {
-                // if the edit text is empty
-                if (editable.isNullOrEmpty()) {
+    private fun adjustClearIconVisibility(editText: EditText, endIconResource: Int){
+        editText.addTextChangedListener(@SuppressLint("RestrictedApi")
+        object : TextWatcherAdapter() {
+            override fun afterTextChanged(editable: Editable) {
+                if (editable.isEmpty()) {
                     editText.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, endIconResource, 0)
                 } else {
                     editText.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_clear_edittext_content, 0, endIconResource, 0)
@@ -178,10 +170,9 @@ class FavoriteFragment : Fragment() {
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    fun drawableStartClicked(editText: EditText) {
+    fun clearIconClicked(editText: EditText) {
         editText.setOnTouchListener { _, event ->
             val rightDrawable = editText.compoundDrawables[2]
-
             if (event.action == MotionEvent.ACTION_UP && rightDrawable != null) {
                 val drawableWidth = rightDrawable.bounds.width()
                 if (event.rawX >= (editText.right - drawableWidth)) {

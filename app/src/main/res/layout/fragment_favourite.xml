@@ -96,6 +96,7 @@
             android:fontFamily="@font/noto_sans_arabic_medium"
             android:hint="ادخل رقم الهاتف"
             android:inputType="textEmailAddress"
+            android:drawableEnd="@drawable/ic_whatsapp"
             android:paddingStart="@dimen/_16sdp"
             android:textSize="@dimen/_12sdp" />
     </com.google.android.material.textfield.TextInputLayout>
